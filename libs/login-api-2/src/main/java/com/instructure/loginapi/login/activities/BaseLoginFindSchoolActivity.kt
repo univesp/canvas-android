@@ -212,7 +212,7 @@ abstract class BaseLoginFindSchoolActivity : AppCompatActivity(), ErrorReportDia
 
         //if the user enters nothing, try to connect to canvas.instructure.com
         if (url!!.trim { it <= ' ' }.isEmpty()) {
-            url = "canvas.instructure.com"
+            url = "h.cursos1.univesp.br"
         }
 
         //if there are no periods, append .instructure.com

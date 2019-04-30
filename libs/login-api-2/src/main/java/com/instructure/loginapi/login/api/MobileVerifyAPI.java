@@ -59,7 +59,7 @@ public class MobileVerifyAPI {
                 .build();
 
         return new Retrofit.Builder()
-                .baseUrl("https://canvas.instructure.com/api/v1/")
+                .baseUrl("https://h.cursos1.univesp.br/api/v1/")
                 .client(httpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

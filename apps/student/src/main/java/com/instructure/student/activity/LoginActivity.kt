@@ -29,6 +29,7 @@ import com.instructure.interactions.router.Route
 import com.instructure.loginapi.login.activities.BaseLoginInitActivity
 import com.instructure.pandautils.services.PushNotificationRegistrationService
 import com.instructure.pandautils.utils.Utils
+import com.instructure.student.MadeEasyLoginInit
 
 class LoginActivity : BaseLoginInitActivity() {
 
@@ -47,7 +48,7 @@ class LoginActivity : BaseLoginInitActivity() {
     }
 
     override fun beginLoginFlowIntent(): Intent {
-        return LoginLandingPageActivity.createIntent(this);
+        return MadeEasyLoginInit.createIntent(this);
     }
 
     override fun themeColor(): Int {

@@ -413,4 +413,12 @@
         <item name="android:windowExitAnimation">@anim/rubric_tooltip_exit</item>
     </style>
 
+    <style name="AppTheme.RoundedCornerMaterialButtonAccent" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/bg_bt_accent</item>
+    </style>
+
+    <style name="AppTheme.RoundedCornerMaterialButtonPrimary" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/bg_bt_primary</item>
+    </style>
+
 </resources>
