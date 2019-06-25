@@ -29,7 +29,7 @@ import retrofit2.http.Url
 
 
 object AccountDomainAPI {
-    private const val DEFAULT_DOMAIN = "http://h.cursos1.univesp.br/"
+    private const val DEFAULT_DOMAIN = "https://novotec.univesp.br"
 
     interface AccountDomainInterface {
         @GET

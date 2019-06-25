@@ -94,7 +94,7 @@ public abstract class BaseLoginSignInActivity extends AppCompatActivity implemen
     private WebView mWebView;
 
     private String mClientId;
-    private String mClientSecret;
+    private String mClientSecret; 
     private int mCanvasLogin = 0;
     boolean mSpecialCase = false;
     private String mAuthenticationURL;
@@ -466,9 +466,9 @@ public abstract class BaseLoginSignInActivity extends AppCompatActivity implemen
 
         if(forceAuthRedirect || mCanvasLogin == MOBILE_VERIFY_FLOW || (domain != null && domain.contains(".test."))) {
             //Skip mobile verify
-            builder.appendQueryParameter("redirect_uri", "urn:ietf:wg:oauth:2.0:oob");
+            builder.appendQueryParameter("redirect_uri", "https://novotec.univesp.br/login/oauth2/auth");
         } else {
-            builder.appendQueryParameter("redirect_uri", "https://h.cursos1.univesp.br/login/canvas");
+            builder.appendQueryParameter("redirect_uri", "https://novotec.univesp.br/login/oauth2/auth");
         }
 
         //If an authentication provider is supplied we need to pass that along. This should only be appended if one exists.

@@ -30,7 +30,7 @@ import retrofit2.http.Query
 
 object ErrorReportAPI {
 
-    const val DEFAULT_DOMAIN = "http://h.cursos1.univesp.br"
+    const val DEFAULT_DOMAIN = "https://novotec.univesp.br"
 
     enum class Severity(val tag: String) {
         COMMENT("just_a_comment"),

@@ -26,9 +26,12 @@ import java.io.IOException;
 
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
+import okhttp3.Protocol;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -41,25 +44,33 @@ public class MobileVerifyAPI {
 
         final String userAgent = ApiPrefs.getUserAgent();
 
+        final String MADEEASY_DOMAIN = "{" +
+                "\"authorized\": true, " +
+                "\"result\": 0, " +
+                "\"client_id\": \"10000000000003\", " +
+                "\"api_key\": \"ixoEduHjoti6VK38oKM4UBSyyHNCumh2eEKsjnjNwc3FGylJPq1SgJusxoxr8Ig0\", " +
+                "\"client_secret\": \"Cv9uvy4Zkq7YcLixQYItIB0xGWTzDt302Qflks6Rk4X9wFgQ9nNG6BrAUBw1N3he\", " +
+                "\"base_url\": \"https://novotec.univesp.br\"" +
+                "}";
+
         OkHttpClient httpClient = new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {
                     @Override
                     public Response intercept(Chain chain) throws IOException {
-                        if (!userAgent.equals("")) {
-                            Request request = chain.request().newBuilder()
-                                    .header("User-Agent", userAgent)
-                                    .cacheControl(CacheControl.FORCE_NETWORK)
-                                    .build();
-                            return chain.proceed(request);
-                        } else {
-                            return chain.proceed(chain.request());
-                        }
+                        return new Response.Builder()
+                                .code(200)
+                                .message("OK")
+                                .request(chain.request())
+                                .body(ResponseBody.create(MediaType.parse("application/json"), MADEEASY_DOMAIN.getBytes()))
+                                .addHeader("content-type", "application/json")
+                                .protocol(Protocol.HTTP_1_0)
+                                .build();
                     }
                 })
                 .build();
 
         return new Retrofit.Builder()
-                .baseUrl("https://h.cursos1.univesp.br/api/v1/")
+                .baseUrl("https://novotec.univesp.br/api/v1/")
                 .client(httpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
